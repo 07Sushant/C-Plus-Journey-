@@ -6,7 +6,7 @@ int main()
     cin >>x>>y;
     child=(y-(5*x))/13;
     adult=child+x;
-    senior=2*C;
+    senior=2*child;
     
     cout << "Number of children tickets sold: " << child << endl;
     cout << "Number of adult tickets sold: " << adult<< endl;
