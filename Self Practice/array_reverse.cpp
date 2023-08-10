@@ -19,3 +19,17 @@ int main() {
     
     return 0;
 }
+
+
+
+
+
+# include <stdio.h>
+int main
+()
+{
+    int a[20], i, b;
+    scanf("%d",&b);
+    printf("Enter the element of array: ");
+    for(i = 0; i<=b; i++)
+}
