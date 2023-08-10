@@ -2,15 +2,15 @@
 using namespace std;
 int main()
 {
-    int x,y,A,C,S;
+    int x,y,adult,child,senior;
     cin >>x>>y;
     C=(y-(5*x))/13;
-    A=C+x;
-    S=2*C;
+    adult=child+x;
+    senior=2*C;
     
-    cout << "Number of children tickets sold: " << C << endl;
-    cout << "Number of adult tickets sold: " << A<< endl;
-    cout << "Number of senior tickets sold: " << S<<endl;
+    cout << "Number of children tickets sold: " << child << endl;
+    cout << "Number of adult tickets sold: " << adult<< endl;
+    cout << "Number of senior tickets sold: " << senior<<endl;
     
     
     return 0;
