@@ -4,7 +4,7 @@ int main()
 {
     int x,y,adult,child,senior;
     cin >>x>>y;
-    C=(y-(5*x))/13;
+    child=(y-(5*x))/13;
     adult=child+x;
     senior=2*C;
     
