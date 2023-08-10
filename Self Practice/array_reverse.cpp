@@ -32,4 +32,5 @@ int main
     scanf("%d",&b);
     printf("Enter the element of array: ");
     for(i = 0; i<=b; i++)
+    return 0;
 }
