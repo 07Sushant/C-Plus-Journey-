@@ -1,24 +1,23 @@
 #include <iostream>
+using namespace std;
 
-int sum(int arr[], int n) {
-    int total = 0;
-    for (int i = 0; i < n; ++i) {
-        total += arr[i];
-    }
-    return total;
+void calculateDivisorSum(int num, int &sum) {
+        sum = 0;
+            for (int i = 1; i <= num; i++) {
+                        if (num % i == 0) {
+                                        sum += i;
+                        }
+            }
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-
-    int arr[n];
-    for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
-    }
-
-    int result = sum(arr, n);
-    std::cout << result << std::endl;
-
-    return 0;
-}
+        int num;
+            cin >> num;
+                
+                    int sumOfDivisors;
+                        calculateDivisorSum(num, sumOfDivisors);
+                            
+                                cout << " " << sumOfDivisors << endl;
+                                    
+                                        return 0;
+}       
