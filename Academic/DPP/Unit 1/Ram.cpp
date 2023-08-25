@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 
-void fun1(int num1, int num2) {
+void fun1(int num1,int num2) {
     cout << num1 + num2 << endl;
 }
 
-void fun1(int num1, int num2, int num3) {
+void fun1(int num1,int num2,int num3) {
     cout << num1 * num2 * num3 << endl;
 }
 
