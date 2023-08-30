@@ -1,78 +1,74 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-class Year
-{
-public:
-    enum Month
-    {
-        JANUARY = 1,
-        FEBRUARY,
-        MARCH,
-        APRIL,
-        MAY,
-        JUNE,
-        JULY,
-        AUGUST,
-        SEPTEMBER,
-        OCTOBER,
-        NOVEMBER,
-        DECEMBER
-    };
+enum Month{
+ JANUARY,FEBRUARY,MARCH,APRIL,MAY,JUNE,JULY,AUGUST,SEPTEMBER,OCTOBER,NOVEMBER,DECEMBER
 };
 
-int main()
-{
-    int n;
-    cin >> n;
-
-    if (n >= Year::JANUARY && n <= Year::DECEMBER)
-    {
-        Year::Month month = static_cast<Year::Month>(n);
-        switch (month)
-        {
-        case Year::JANUARY:
-            cout << "Month: JANUARY";
-            break;
-        case Year::FEBRUARY:
-            cout << "Month: FEBRUARY";
-            break;
-        case Year::MARCH:
-            cout << "Month: MARCH";
-            break;
-        case Year::APRIL:
-            cout << "Month: APRIL";
-            break;
-        case Year::MAY:
-            cout << "Month: MAY";
-            break;
-        case Year::JUNE:
-            cout << "Month: JUNE";
-            break;
-        case Year::JULY:
-            cout << "Month: JULY";
-            break;
-        case Year::AUGUST:
-            cout << "Month: AUGUST";
-            break;
-        case Year::SEPTEMBER:
-            cout << "Month: SEPTEMBER";
-            break;
-        case Year::OCTOBER:
-            cout << "Month: OCTOBER";
-            break;
-        case Year::NOVEMBER:
-            cout << "Month: NOVEMBER";
-            break;
-        case Year::DECEMBER:
-            cout << "Month: DECEMBER";
-            break;
-        }
-    }
-    else
-    {
-        cout << "Invalid month input";
-    }
-
-    return 0;
+class Year{
+ private:
+ Month month;
+ 
+ public:
+ Year(int m){
+ if (m>=1 && m<=12){
+ month=static_cast<Month>(m-1);
+ }
+ else{
+ std::cout<<"Invalid month input\n";
+ exit(1);
+ }
+ }
+ 
+ Month getMonth(){
+ return month;
+ }
+};
+int main(){
+ int inputMonth;
+ std::cin>>inputMonth;
+ Year year(inputMonth);
+ 
+ std::cout<<"Month: ";
+ switch(year.getMonth()){
+ case Month::JANUARY:
+ std::cout<<"JANUARY";
+ break;
+ case Month::FEBRUARY:
+ std::cout<<"FEBRUARY";
+ break;
+ case Month::MARCH:
+ std::cout<<"MARCH";
+ break;
+ case Month::APRIL:
+ std::cout<<"APRIL";
+ break;
+ case Month::MAY:
+ std::cout<<"MAY";
+ break;
+ case Month::JUNE:
+ std::cout<<"JUNE";
+ break;
+ case Month::JULY:
+ std::cout<<"JULY";
+ break;
+ case Month::AUGUST:
+ std::cout<<"AUGUST";
+ break;
+ case Month::SEPTEMBER:
+ std::cout<<"SEPTEMBER";
+ break;
+ case Month::OCTOBER:
+ std::cout<<"OCTOBER";
+ break;
+ case Month::NOVEMBER:
+ std::cout<<"NOVEMBER";
+ break;
+ case Month::DECEMBER:
+ std::cout<<"DECEMBER";
+ break;
+ 
+ }
+ std::cout<<std::endl;
+ return 0;
 }

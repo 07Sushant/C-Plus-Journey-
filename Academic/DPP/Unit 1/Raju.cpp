@@ -1,36 +1,41 @@
-
-
-
 #include <iostream>
+#include <string>
+#include <vector> 
+
 using namespace std;
-union Customers{
-    char name[50];
-    int accountNumber;
-    double balance;
+
+struct CustomerData {
+        string name;
+            int accountNumber;
+                int balance;
 };
 
-void increment_balance(Customers c[], int n)
-{
-    for(int i = 0; i <n;i++)
-    {
-        if (c[i].balance > 1000)
-        {
-            cout << c[i].balance + 100 << " ";
-            c[i].balance += 100;
+union Customers {
+      CustomerData* customerDataPtr; 
+      int balanceArray[3]; 
+};
+void increment_balance(Customers c[], int n) {
+        for (int i = 0; i < n; i++) {
+        if (c[i].customerDataPtr->balance > 1000) {
+        c[i].customerDataPtr->balance += 100;
+        cout << c[i].customerDataPtr->balance << " ";
+                    }
         }
-    }
 }
-
-int main ()
-{
+int main() {
     int N;
     cin >> N;
-    Customers customerData[N];
-    
-    for (int i = 0; i <N; i++)
-    {
-        cin >> customerData[i].name>> customerData[i].accountNumber>>customerData[i].balance;
+    Customers customerArray[N];
+    for (int i = 0; i < N; i++) {
+    customerArray[i].customerDataPtr = new CustomerData; 
+    cin >> customerArray[i].customerDataPtr->name >> customerArray[i].customerDataPtr->accountNumber >> customerArray[i].customerDataPtr->balance;
+}
+    increment_balance(customerArray, N);
+   for (int i = 0; i < N; i++) {
+   delete customerArray[i].customerDataPtr;
+}
+                                
+    return 0;
 }
 
-increment_balance(customerData, N);
-return 0;}
+//Sushant
