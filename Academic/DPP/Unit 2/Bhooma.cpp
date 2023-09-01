@@ -1,34 +1,36 @@
 #include <iostream>
 #include <stack>
-using namespace std;
 
 bool isValidMathExpression(const char* expression) {
-    stack<char> brackets;
-
-    for (int i = 0; expression[i] != '\0'; ++i) {
-        if (expression[i] == '(') {
-            brackets.push(expression[i]);
-        } else if (expression[i] == ')') {
-            if (brackets.empty() || brackets.top() != '(') {
-                return false;
-            }
-            brackets.pop();
-        } else if (expression[i] == '{' || expression[i] == '}') {
-            return false;
+        std::stack<char> stack;
+        
+        for (int i = 0; expression[i] != '\0'; ++i) {
+        char currentChar = expression[i];
+        if (currentChar == '(' || currentChar == '{') {
+        stack.push(currentChar);
+        } else if (currentChar == ')' || currentChar == '}') {
+        if (stack.empty() || (currentChar == ')' && stack.top() != '(') || (currentChar == '}' && stack.top() != '{')) {
+        return false;}
+        stack.pop();
+        } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') {
+        if (i == 0 || expression[i - 1] == '(' || expression[i - 1] == '{' || expression[i + 1] == '\0' || expression[i + 1] == ')' || expression[i + 1] == '}' || expression[i + 1] == '+' || expression[i + 1] == '-' || expression[i + 1] == '*' || expression[i + 1] == '/') {
+        return false;}
+        } else if (currentChar >= '0' && currentChar <= '9') {
+        } else if (currentChar != ' ' && currentChar != '\t') {
+        return false;
         }
     }
-
-    return brackets.empty();
+    return stack.empty();
 }
 
 int main() {
     char expression[1000];
-    cin.getline(expression, 1000);
+    std::cin.getline(expression, sizeof(expression));
     if (isValidMathExpression(expression)) {
-        cout << "Valid mathematical expression." << endl;
+    std::cout << "Valid mathematical expression." << std::endl;
     } else {
-        cout << "Invalid mathematical expression." << endl;
-    }
+    std::cout << "Invalid mathematical expression." << std::endl;}
     return 0;
 }
-//Sushant
+
+//sushant
