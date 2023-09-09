@@ -1,60 +1,46 @@
-// You are using GCC
 #include <iostream>
 #include <iomanip>
-#include <string>
-using namespace std;
 
-class Product {
-private:
-    string name;
-    double price;
-    int quantity;
-
+class Money {
 public:
-    Product() {
-        name = "";
-        price = 0.0;
-        quantity = 0;
+    int rupee;
+    int paisa;
+
+    Money(int r, int p) {
+        rupee = r;
+        paisa = p;
     }
 
-    void setValues(string n, double p, int q) {
-        name = n;
-        price = p;
-        quantity = q;
-    }
+    Money addMoney(const Money& other) {
+        Money result(0, 0);
+        result.rupee = rupee + other.rupee;
+        result.paisa = paisa + other.paisa;
 
-    void displayDetails() {
-        cout << "Product Name: " << name << endl;
-        cout << "Total Price: " << fixed << setprecision(2) << price * quantity << endl;
+        if (result.paisa >= 100) {
+            result.rupee += result.paisa / 100;
+            result.paisa %= 100;
+        }
+
+        return result;
     }
 };
 
 int main() {
-    int maxProducts;
-    cin >> maxProducts;
+    int r1, p1, r2, p2;
+    
+    std::cin >> r1 >> p1;
+    
+    std::cin >> r2 >> p2;
 
-    Product *cart = new Product[maxProducts];
+    Money money1(r1, p1);
+    Money money2(r2, p2);
 
-    for (int i = 0; i < maxProducts; i++) {
-        string name;
-        double price;
-        int quantity;
+    Money total = money1.addMoney(money2);
 
-        cin.ignore();
-        getline(cin, name);
-        cin >> price >> quantity;
-
-        cart[i].setValues(name, price, quantity);
-    }
-
-    cout << "Shopping Cart details:" << endl;
-    for (int i = 0; i < maxProducts; i++) {
-        cart[i].displayDetails();
-    }
-
-    delete[] cart; 
+    std::cout << std::fixed << std::setprecision(2) << total.rupee << "." << std::setw(2) << std::setfill('0') << total.paisa << std::endl;
 
     return 0;
 }
+
 
 //Sushant
