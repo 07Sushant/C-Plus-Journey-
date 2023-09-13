@@ -29,16 +29,14 @@ int main() {
 
     int num_destinations;
     std::cin >> num_destinations;
-    std::cin.ignore(); // Consume newline
-
+    std::cin.ignore(); 
     for (int i = 0; i < num_destinations; ++i) {
         std::string destination;
         int availability;
 
         std::getline(std::cin, destination);
         std::cin >> availability;
-        std::cin.ignore(); // Consume newline
-
+        std::cin.ignore(); 
         online_shop.add_destination(destination, availability);
     }
 
