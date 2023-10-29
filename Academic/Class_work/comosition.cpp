@@ -53,3 +53,10 @@ int main()
     ob.show();
     return 0;
 }
+
+
+// Dynamic Memory Allocation 
+
+
+// int *ptr=new int;
+
