@@ -18,8 +18,18 @@ inline void Operation::get() {
     cout << "Addition of two numbers: " << a + b << endl;
     cout << "Difference of two numbers: " << a - b << endl;
     cout << "Product of two numbers: " << a * b << endl;
-    cout << "Division of two numbers: " << a / b << endl;
-    cout << "Modulus of two numbers: " << a % b << endl;
+    if(a == 0 || b == 0){
+        cout<<"Division by zero not possible"<<endl;
+    }
+    else{
+        cout << "Division of two numbers: " << a / b << endl;
+    }
+    if(a == 0 || b == 0){
+        cout<<"Division by zero not possible"<<endl;
+    }
+    else{
+        cout << "Modulus of two numbers: " << a % b << endl;
+    }
 }
 
 int main() {
