@@ -1,31 +1,34 @@
-// You are using GCC
 #include <iostream>
-#include <string>
+#include <algorithm>
 using namespace std;
 
-string generateAcronym(const string& phrase) {
-    string acronym = "";
+int findSmallestDifference(int scores[], int n) {
+    sort(scores, scores + n); // sort the array in ascending order
+    int min_diff = scores[1] - scores[0]; // initialize the minimum difference to the difference between the first two scores
 
-    acronym += toupper(phrase[0]);
-
-    for (int i = 0; i < phrase.length(); i++) {
-        if (phrase[i] == ' ') {
-            acronym += toupper(phrase[i + 1]);
+    for (int i = 2; i < n; i++) {
+        int diff = scores[i] - scores[i - 1]; // calculate the difference between the current score and the previous score
+        if (diff < min_diff) {
+            min_diff = diff; // update the minimum difference if the current difference is smaller
         }
     }
 
-    return acronym;
+    return min_diff;
 }
 
 int main() {
-    string input;
-    getline(cin, input);
+    int n;
+  
+    cin >> n;
 
-    string acronym = generateAcronym(input);
-    
-    cout << "" << acronym << endl;
+    int scores[n];
+   
+    for (int i = 0; i < n; i++) {
+        cin >> scores[i];
+    }
+
+    int smallest_diff = findSmallestDifference(scores, n);
+    cout <<smallest_diff;
 
     return 0;
 }
-
-//Sushant
