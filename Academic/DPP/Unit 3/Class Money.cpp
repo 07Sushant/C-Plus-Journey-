@@ -26,7 +26,6 @@ public:
         return paise;
     }
 };
-
 int main() {
     Money m1, m2;
     int rupee, paise;
